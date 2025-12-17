@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>{{ role }} Login</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 50px; }
+    form { display: inline-block; border: 1px solid #ddd; padding: 20px; border-radius: 10px; }
+    input { display: block; margin: 10px auto; padding: 8px; width: 250px; }
+    button { background: #007BFF; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    .flash { color: red; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>{{ role }} Login</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+  <form method="POST">
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <input type="password" name="password" placeholder="Enter Password" required>
+    <button type="submit">Login</button>
+  </form>
+  <br>
+  <a href="{{ url_for('index') }}">← Back to Home</a>
+</body>
+</html>

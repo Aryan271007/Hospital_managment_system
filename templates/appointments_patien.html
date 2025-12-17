@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Book Appointment</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 50px; }
+    select, input { margin: 10px; padding: 8px; width: 250px; }
+    button { background: #007BFF; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>Book Appointment</h2>
+  <form method="POST">
+    <select name="doctor_email" required>
+      <option value="">Select Doctor</option>
+      {% for d in doctors %}
+        <option value="{{ d.email }}">{{ d.name }} ({{ d.email }})</option>
+      {% endfor %}
+    </select>
+    <input type="date" name="date" required>
+    <input type="time" name="time" required>
+    <button type="submit">Book</button>
+  </form>
+  <br>
+  <a href="{{ url_for('dashboard_patient') }}">← Back to Dashboard</a>
+</body>
+</html>

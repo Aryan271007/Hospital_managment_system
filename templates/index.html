@@ -1,0 +1,99 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hospital Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .home-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 420px;
+      transition: all 0.3s ease;
+    }
+
+    .home-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      font-weight: 700;
+      color: #00796b;
+      margin-bottom: 25px;
+      font-size: 26px;
+    }
+
+    h3 {
+      color: #444;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .btn-custom {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #009688;
+      color: #fff;
+      font-weight: 500;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-custom:hover {
+      background-color: #00796b;
+      transform: translateY(-2px);
+    }
+
+    .register-link {
+      margin-top: 10px;
+      display: inline-block;
+      color: #00796b;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .register-link:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      font-size: 13px;
+      color: #777;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="home-card">
+    <h1>🏥 Hospital Management System</h1>
+    <h3>Login as:</h3>
+
+    <a href="{{ url_for('login_role', role='patient') }}" class="btn-custom">👤 Patient</a>
+    <a href="{{ url_for('login_role', role='doctor') }}" class="btn-custom">🩺 Doctor</a>
+    <a href="{{ url_for('login_role', role='nurse') }}" class="btn-custom">💉 Nurse</a>
+    <a href="{{ url_for('login_role', role='admin') }}" class="btn-custom">⚙️ Admin</a>
+
+    <a href="{{ url_for('register_patient') }}" class="register-link">📝 Register as Patient</a>
+
+    <div class="footer">© 2025 Hospital Management System</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="card shadow-sm p-4">
+        <h2 class="text-center mb-4">Book Appointment</h2>
+
+        <form method="POST">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Select</th>
+                        <th>Doctor Name</th>
+                        <th>Specialization</th>
+                        <th>Availability</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if doctors %}
+                        {% for d in doctors %}
+                        <tr>
+                            <td class="text-center">
+                                <input type="radio" name="doctor_email" value="{{ d.email }}" required>
+                            </td>
+                            <td>{{ d.name }}</td>
+                            <td>{{ d.specialization }}</td>
+                            <td>{{ d.available_time }}</td>
+                            <td>{{ d.email }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center text-muted">No doctors available.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary px-4">Book Appointment</button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="{{ url_for('dashboard_patient') }}" class="btn btn-outline-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
